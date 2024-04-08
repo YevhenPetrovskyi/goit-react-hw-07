@@ -5,8 +5,8 @@ import iziToast from 'izitoast';
 
 import normalizeName from '../../helpers/nameNormalize';
 import { contactSchema } from '../../helpers/contactSchema';
+import { addContact } from '../../redux/contactsOps';
 import { selectContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/contactsSlice';
 
 import 'izitoast/dist/css/iziToast.min.css';
 import styles from './ContactForm.module.css';
@@ -35,7 +35,7 @@ function ContactForm() {
       return;
     }
 
-    dispatch(addContact(correctName, number));
+    dispatch(addContact({ name: correctName, number }));
     resetForm();
   };
 
